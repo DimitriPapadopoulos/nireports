@@ -19,7 +19,10 @@ from contextlib import AbstractContextManager, ExitStack
 from functools import cached_property
 from pathlib import Path
 from types import ModuleType
-from typing import Union
+from typing import Union, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from importlib_resources.abc import Traversable
 
 try:
     from functools import cache
@@ -34,7 +37,7 @@ except ImportError:
 try:  # Prefer stdlib so Sphinx can link to authoritative documentation
     from importlib.resources.abc import Traversable
 except ImportError:
-    from importlib_resources.abc import Traversable
+    pass
 
 __all__ = ["load"]
 
