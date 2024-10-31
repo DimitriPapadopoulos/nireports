@@ -17,11 +17,12 @@ import atexit
 import os
 from contextlib import AbstractContextManager, ExitStack
 from functools import cached_property
-from pathlib import Path
-from types import ModuleType
 from typing import Union, TYPE_CHECKING
 
 if TYPE_CHECKING:
+    from importlib.resources.abc import Traversable
+    from types import ModuleType
+    from pathlib import Path
     from importlib_resources.abc import Traversable
 
 try:
@@ -35,7 +36,7 @@ except ImportError:
     from importlib.resources import as_file, files
 
 try:  # Prefer stdlib so Sphinx can link to authoritative documentation
-    from importlib.resources.abc import Traversable
+    pass
 except ImportError:
     pass
 
