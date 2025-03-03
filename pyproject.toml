@@ -131,18 +131,14 @@ exclude = [
 ]
 
 [tool.ruff.lint]
-select = [
-  "F",
-  "E",
-  "C",
-  "W",
+extend-select = [
   "B",
+  "C4",
   "I",
+  "W",
 ]
 ignore = [
-  "E203",
   "B019",
-  "C901",
 ]
 
 [tool.ruff.lint.flake8-quotes]
@@ -150,8 +146,6 @@ inline-quotes = "double"
 
 [tool.ruff.lint.extend-per-file-ignores]
 "*/__init__.py" = ["F401"]
-"docs/conf.py" = ["E265"]
-"/^\\s*\\.\\. _.*?: http/" = ["E501"]
 
 [tool.ruff.format]
 quote-style = "double"
